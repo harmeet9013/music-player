@@ -16,7 +16,7 @@ export default function PrintPlaylist({
             audioFile.pause();
             setPlaying(false);
         }
-        audioFile.setAttribute('classname', '.fade-in-out.fade-in');
+        audioFile.setAttribute('className', '.fade-in-out.fade-in');
         audioFile.play();
         setPlaying(true);
     }
