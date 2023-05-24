@@ -1,4 +1,5 @@
 import { AudioFilePaths } from "..";
+import ChangeSongs from "./ChangeSongs";
 
 export default function PrintPlaylist({
     audioFile,
@@ -6,21 +7,6 @@ export default function PrintPlaylist({
     setPlaying,
     setCurrentSongName,
 }) {
-    function ChangeSongs(SongName) {
-        const FileName = SongName.split("/").pop();
-
-        audioFile.setAttribute('src', "static/media/" + FileName);
-        
-        if (isPlaying) {
-            audioFile.setAttribute('className', '.fade-in-out.fade-out');
-            audioFile.pause();
-            setPlaying(false);
-        }
-        audioFile.setAttribute('className', '.fade-in-out.fade-in');
-        audioFile.play();
-        setPlaying(true);
-    }
-
     return (
         <div className="playlist">
             <h1>Playlist</h1>
@@ -29,7 +15,7 @@ export default function PrintPlaylist({
                     key={SongName}
                     onClick={() => {
                         setCurrentSongName(SongName);
-                        ChangeSongs(SongName);
+                        ChangeSongs(SongName, audioFile, isPlaying, setPlaying);
                     }}
                     name={SongName}
                 >
