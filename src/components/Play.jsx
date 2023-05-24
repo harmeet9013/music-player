@@ -10,7 +10,7 @@ export default function Play({ audioFile, isPlaying, setPlaying }) {
     }
 
     return (
-        <div>
+        <div className="play">
             <button onClick={handleClick} name="play">
                 {isPlaying ? "Pause" : "Play"}
             </button>

@@ -28,3 +28,44 @@
 .App > .heading {
     font-size: 15px;
 }
+
+.play > button {
+    padding: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    transition: all 200ms ease-out;
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+    border-radius: 40px;
+    border: none;
+}
+
+.play > button:hover {
+    transform: scale(1.1);
+    border-radius: 30px;
+}
+
+.playlist {
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: 20px;
+    margin-bottom: -40px;
+    margin-left: -40px;
+    margin-right: -40px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.playlist > h1 {
+    padding: 10px;
+    text-align: center;
+}
+
+.playlist > button {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+}
