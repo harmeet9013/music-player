@@ -6,9 +6,11 @@ export default function ChangeSongs(
 ) {
     const FileName = SongName.split("/").pop();
 
-    audioFile.setAttribute("src", "static/media/" + FileName);
+    // audioFile.setAttribute("src", FileName);
+    audioFile = new Audio(SongName)
     if (isPlaying) {
         audioFile.setAttribute("class", ".fade-in-out.fade-out");
+        audioFile = new Audio()
         audioFile.pause();
         setPlaying(false);
     }

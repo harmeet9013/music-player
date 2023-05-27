@@ -1,4 +1,4 @@
-import { AudioFilePaths } from "..";
+import { AudioFilePaths } from "../main";
 import ChangeSongs from "./ChangeSongs";
 
 export default function PrintPlaylist({
