@@ -1,12 +1,7 @@
 import { AudioFilePaths } from "../main";
 import ChangeSongs from "./ChangeSongs";
 
-export default function PrintPlaylist({
-    audioFile,
-    isPlaying,
-    setPlaying,
-    setCurrentSongName,
-}) {
+export default function PrintPlaylist({ audioFile, setCurrentSongName, setPlaying }) {
     return (
         <div className="playlist">
             <h1>Playlist</h1>
@@ -15,7 +10,7 @@ export default function PrintPlaylist({
                     key={SongName}
                     onClick={() => {
                         setCurrentSongName(SongName);
-                        ChangeSongs(SongName, audioFile, isPlaying, setPlaying);
+                        ChangeSongs(SongName, audioFile, setPlaying);
                     }}
                     name={SongName}
                 >

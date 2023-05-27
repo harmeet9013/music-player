@@ -12,18 +12,14 @@ export default function App() {
         <div className="container">
             <Header currentSongName={currentSongName} />
             <Play
-                currentSongName={currentSongName}
+                audioFile={audioFile}
                 isPlaying={isPlaying}
                 setPlaying={setPlaying}
-                audioFile={audioFile}
             />
             <Playlist
-                currentSongName={currentSongName}
-                setCurrentSongName={setCurrentSongName}
-                isPlaying={isPlaying}
-                setPlaying={setPlaying}
                 audioFile={audioFile}
-                setAudioFile={setAudioFile}
+                setCurrentSongName={setCurrentSongName}
+                setPlaying={setPlaying}
             />
         </div>
     );

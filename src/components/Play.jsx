@@ -1,34 +1,31 @@
-import pauseIcon from "./assets/pictures/pause.png";
-import playIcon from "./assets/pictures/play.png";
+import PlayButtons from "./PlayButtons";
+import Volume from "./Volume";
+
+import { useEffect } from "react";
 import Seeker from "./seekAudio";
 
 export default function Play({ audioFile, isPlaying, setPlaying }) {
-    function handleClick() {
-        if (!isPlaying) {
-            audioFile.setAttribute("class", ".fade-in-out.fade-in");
-            audioFile.play();
-            setPlaying(true);
-        } else {
-            audioFile.setAttribute("class", ".fade-in-out.fade-out");
-            audioFile.pause();
-            setPlaying(false);
-        }
-    }
+    const handleEnded = () => {
+        setPlaying(false);
+    };
 
-    function setIcon(event) {
-        return event === "pause" ? (
-            <img src={pauseIcon} />
-        ) : (
-            <img src={playIcon} />
-        );
-    }
+    useEffect(() => {
+        audioFile.addEventListener("ended", handleEnded);
+
+        return () => {
+            audioFile.removeEventListener("ended", handleEnded);
+        };
+    }, [audioFile]);
 
     return (
-        <div className="play">
+        <div>
             <Seeker audioFile={audioFile} />
-            <button onClick={handleClick} name="play">
-                {isPlaying ? setIcon("pause") : setIcon("play")}
-            </button>
+            <PlayButtons
+                isPlaying={isPlaying}
+                audioFile={audioFile}
+                setPlaying={setPlaying}
+            />
+            <Volume audioFile={audioFile} />
         </div>
     );
 }
