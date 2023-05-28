@@ -59,6 +59,7 @@ export default function Seeker({ audioFile }) {
                         "&:focus, &:hover, &.Mui-active": {
                             width: 20,
                             height: 20,
+                            backgroundColor: "white",
                             boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
                             // Reset on touch devices, it doesn't add specificity
                             "@media (hover: none)": {

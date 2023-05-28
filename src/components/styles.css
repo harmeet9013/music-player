@@ -2,7 +2,7 @@
     color: white;
     display: inline-flexbox;
     margin: auto;
-    background-color: rgb(69, 97, 69);
+    background-color: rgb(69, 81, 97);
     padding: 50px;
     border-radius: 30px;
     width: 400px;
@@ -110,7 +110,7 @@
 }
 
 .playlist > button:hover {
-    background-color: rgb(36, 43, 36);
+    background-color: rgb(36, 38, 43);
     transform: scale(1.05);
     border-radius: 15px;
     border: 2px solid white;
