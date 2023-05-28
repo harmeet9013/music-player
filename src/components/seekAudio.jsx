@@ -37,10 +37,11 @@ export default function Seeker({ audioFile }) {
         opacity: 0.8,
         fontWeight: 500,
         letterSpacing: 0.2,
+        fontStyle: "italic",
     });
 
     return (
-        <div className="Seek">
+        <div>
             <Slider
                 aria-label="time-indicator"
                 min={0}
@@ -52,26 +53,21 @@ export default function Seeker({ audioFile }) {
                     color: "rgba(255,255,255,0.87)",
                     height: 6,
                     "& .MuiSlider-thumb": {
-                        width: 8,
-                        height: 8,
-                        transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
-                        "&:before": {
-                            color: "white",
-                            boxShadow: "0 2px 12px 0 rgba(0,0,0,0.4)",
-                        },
-                        "&:hover, &.Mui-focusVisible": {
-                            color: "white",
-                            boxShadow: `0px 0px 0px 8px "rgb(0 0 0 / 16%)"
-                            }`,
-                        },
-                        "&.Mui-active": {
-                            color: "white",
+                        width: 0,
+                        height: 0,
+                        transition: "all 200ms ease",
+                        "&:focus, &:hover, &.Mui-active": {
                             width: 20,
-                            height: 100,
+                            height: 20,
+                            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
+                            // Reset on touch devices, it doesn't add specificity
+                            "@media (hover: none)": {
+                                boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
+                            },
                         },
                     },
                     "& .MuiSlider-rail": {
-                        opacity: 0.28,
+                        opacity: 0.3,
                     },
                 }}
             />
@@ -80,7 +76,7 @@ export default function Seeker({ audioFile }) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    mt: -2,
+                    mt: -1.5,
                 }}
             >
                 <TinyText>{formatTime(currentTime)}</TinyText>

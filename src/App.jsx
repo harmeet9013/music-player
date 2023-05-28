@@ -2,6 +2,7 @@ import "./components/styles.css";
 import Play from "./components/Play";
 import Header from "./components/Header";
 import Playlist from "./components/Playlist";
+import Box from "@mui/material/Box";
 import { useState } from "react";
 
 export default function App() {
@@ -9,7 +10,7 @@ export default function App() {
     const [currentSongName, setCurrentSongName] = useState("");
     const [isPlaying, setPlaying] = useState(false);
     return (
-        <div className="container">
+        <Box className="container">
             <Header currentSongName={currentSongName} />
             <Play
                 audioFile={audioFile}
@@ -21,6 +22,6 @@ export default function App() {
                 setCurrentSongName={setCurrentSongName}
                 setPlaying={setPlaying}
             />
-        </div>
+        </Box>
     );
 }

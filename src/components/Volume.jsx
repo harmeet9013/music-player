@@ -2,7 +2,7 @@ import Stack from "@mui/material/Stack";
 import Slider from "@mui/material/Slider";
 import VolumeUpRounded from "@mui/icons-material/VolumeUpRounded";
 import VolumeDownRounded from "@mui/icons-material/VolumeDownRounded";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IconButton } from "@mui/material";
 
 export default function Volume({ audioFile }) {
@@ -29,7 +29,7 @@ export default function Volume({ audioFile }) {
         <Stack
             spacing={2}
             direction="row"
-            sx={{ mb: 1, px: 11.5, width: "220px" }}
+            sx={{ mb: 1, px: 11, width: "220px" }}
             alignItems="center"
         >
             <IconButton
@@ -46,6 +46,7 @@ export default function Volume({ audioFile }) {
                 step={10}
                 min={0}
                 max={100}
+                valueLabelDisplay="auto"
                 marks
                 onChange={handleSeek}
                 sx={{
@@ -58,10 +59,24 @@ export default function Volume({ audioFile }) {
                         height: 18,
                         backgroundColor: "#fff",
                         "&:before": {
-                            boxShadow: "0 4px 8px rgba(0,0,0,0.4)",
+                            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
                         },
                         "&:hover, &.Mui-focusVisible, &.Mui-active": {
                             boxShadow: "none",
+                        },
+                        "& .MuiSlider-valueLabel": {
+                            fontSize: 14,
+                            fontWeight: "500",
+                            mt: 1.5,
+                            backgroundColor: "unset",
+                            color: "white",
+                            "&:before": {
+                                display: "none",
+                            },
+                            "& *": {
+                                background: "transparent",
+                                color: "white",
+                            },
                         },
                     },
                 }}
